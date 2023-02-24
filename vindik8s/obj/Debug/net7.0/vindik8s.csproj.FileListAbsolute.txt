@@ -72,3 +72,40 @@ C:\Users\adam.stevenson\OneDrive - Novia Financial\Documents\dev_study\vindik8s\
 C:\Users\adam.stevenson\OneDrive - Novia Financial\Documents\dev_study\vindik8s\vindik8s\obj\Debug\net7.0\vindik8s.csproj.CopyComplete
 C:\Users\adam.stevenson\OneDrive - Novia Financial\Documents\dev_study\vindik8s\vindik8s\obj\Debug\net7.0\vindik8s.genruntimeconfig.cache
 C:\Users\adam.stevenson\OneDrive - Novia Financial\Documents\dev_study\vindik8s\vindik8s\obj\Debug\net7.0\ref\vindik8s.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\vindik8s.exe
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\vindik8s.deps.json
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\vindik8s.runtimeconfig.json
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\vindik8s.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\vindik8s.pdb
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\AutoMapper.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\Fractions.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\IdentityModel.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\IdentityModel.OidcClient.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\KubernetesClient.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\KubernetesClient.Basic.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\KubernetesClient.Models.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\Microsoft.Extensions.Http.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\Microsoft.Extensions.Logging.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\Prometheus.NetStandard.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\work\repos\vindik8s\vindik8s\bin\Debug\net7.0\YamlDotNet.dll
+C:\work\repos\vindik8s\vindik8s\obj\Debug\net7.0\vindik8s.csproj.AssemblyReference.cache
+C:\work\repos\vindik8s\vindik8s\obj\Debug\net7.0\vindik8s.GeneratedMSBuildEditorConfig.editorconfig
+C:\work\repos\vindik8s\vindik8s\obj\Debug\net7.0\vindik8s.AssemblyInfoInputs.cache
+C:\work\repos\vindik8s\vindik8s\obj\Debug\net7.0\vindik8s.AssemblyInfo.cs
+C:\work\repos\vindik8s\vindik8s\obj\Debug\net7.0\vindik8s.csproj.CoreCompileInputs.cache
+C:\work\repos\vindik8s\vindik8s\obj\Debug\net7.0\vindik8s.csproj.CopyComplete
+C:\work\repos\vindik8s\vindik8s\obj\Debug\net7.0\vindik8s.dll
+C:\work\repos\vindik8s\vindik8s\obj\Debug\net7.0\refint\vindik8s.dll
+C:\work\repos\vindik8s\vindik8s\obj\Debug\net7.0\vindik8s.pdb
+C:\work\repos\vindik8s\vindik8s\obj\Debug\net7.0\vindik8s.genruntimeconfig.cache
+C:\work\repos\vindik8s\vindik8s\obj\Debug\net7.0\ref\vindik8s.dll

@@ -19,6 +19,11 @@ namespace Vindik8s
             //Foreach context in contexts, log in? Get Namespaces? Make custom class for these things
         }
 
+        public List<string> GetContexts()
+        {
+            return _contexts;
+        }
+
         public async Task<Dictionary<string, List<string>>> ListAllNamespaces()
         {
             var contextsAndNamespaces = new Dictionary<string, List<string>>();
@@ -49,16 +54,16 @@ namespace Vindik8s
 
         }
 
-        public async Task<List<string>> ListNamespaces(string context = null)
+        public async Task<List<string>> ListNamespaces(string clusterName = null)
         {
             var namespaces = new List<string>();
 
             var config = KubernetesClientConfiguration.BuildConfigFromConfigFile();
 
-            if (context != null)
+            if (clusterName != null)
             {
 
-                config = KubernetesClientConfiguration.BuildConfigFromConfigFile(currentContext: context);
+                config = KubernetesClientConfiguration.BuildConfigFromConfigFile(currentContext: clusterName);
             }
 
             var client = new Kubernetes(config);
@@ -73,8 +78,11 @@ namespace Vindik8s
 
         }
 
-        public async Task<Dictionary<string, string, Boolean>> CheckServices()
+        public async Task<KubernetesNamespace> ListNamespaces1(string? clusterName = null)
         {
+            var KNamespace = new KubernetesNamespace("nf-c17-uks-aks-k8s");
+
+            return KNamespace;
 
         }
     }

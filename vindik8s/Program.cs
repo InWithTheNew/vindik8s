@@ -1,4 +1,5 @@
-﻿using IdentityModel.OidcClient;
+﻿using AutoMapper.Configuration.Annotations;
+using IdentityModel.OidcClient;
 using k8s;
 using System.Security.Cryptography;
 
@@ -27,12 +28,19 @@ namespace Vindik8s
 
             //Console.WriteLine($" pr - {namespacesPRString}");
 
-            var podQuery = new KubernetesPod("nf-c17-uks-aks-k8s", "corporate");
+            //var podQuery = new KubernetesPod("nf-c17-uks-aks-k8s", "corporate");
 
-            var podsInC17 = podQuery.GetPods();
+            //var podsInC17 = podQuery.GetPods();
 
-            Console.WriteLine(string.Join(",", podsInC17));
+            //Console.WriteLine(string.Join(",", podsInC17));
 
+            var contexts = kubeCluster.GetContexts();
+
+            var firstContext = contexts[0];
+
+            var c17Namespaces = kubeCluster.ListNamespaces1(firstContext);
+
+            Console.WriteLine(c17Namespaces);
 
         }
     }

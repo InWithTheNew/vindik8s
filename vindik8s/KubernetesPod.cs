@@ -17,7 +17,7 @@ namespace Vindik8s
             string _clusterName = clusterName;
             string _kNamespace = kubernetesNamespace;
 
-            var config = KubernetesClientConfiguration.BuildConfigFromConfigFile(currentContext: clusterName);
+            var config = KubernetesClientConfiguration.BuildConfigFromConfigFile(currentContext: _clusterName);
             var client = new Kubernetes(config);
 
             var podList = client.CoreV1.ListNamespacedPod(kubernetesNamespace).Items.Select(x => x.Metadata.Name).ToList();
