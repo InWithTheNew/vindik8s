@@ -1461,11 +1461,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adam.stevenson\\OneDrive - Novia Financial\\Documents\\dev_study\\vindik8s\\vindik8s\\vindik8s.csproj",
+      "projectUniqueName": "C:\\work\\repos\\vindik8s\\vindik8s\\vindik8s.csproj",
       "projectName": "vindik8s",
-      "projectPath": "C:\\Users\\adam.stevenson\\OneDrive - Novia Financial\\Documents\\dev_study\\vindik8s\\vindik8s\\vindik8s.csproj",
+      "projectPath": "C:\\work\\repos\\vindik8s\\vindik8s\\vindik8s.csproj",
       "packagesPath": "C:\\Users\\adam.stevenson\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adam.stevenson\\OneDrive - Novia Financial\\Documents\\dev_study\\vindik8s\\vindik8s\\obj\\",
+      "outputPath": "C:\\work\\repos\\vindik8s\\vindik8s\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\adam.stevenson\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -12,15 +12,15 @@ namespace Vindik8s
     {
         List<string> podList;
 
-        public KubernetesPod(string clusterName, string kNamespace)
+        public KubernetesPod(string clusterName, string kubernetesNamespace)
         {
             string _clusterName = clusterName;
-            string _kNamespace = kNamespace;
+            string _kNamespace = kubernetesNamespace;
 
             var config = KubernetesClientConfiguration.BuildConfigFromConfigFile(currentContext: clusterName);
             var client = new Kubernetes(config);
 
-            var podList = client.CoreV1.ListNamespacedPod(kNamespace).Items.Select(x => x.Metadata.Name).ToList();
+            var podList = client.CoreV1.ListNamespacedPod(kubernetesNamespace).Items.Select(x => x.Metadata.Name).ToList();
         }
 
         public List<string> GetPods()

@@ -12,7 +12,6 @@ namespace Vindik8s
     {
         string _name;
 
-
         public KubernetesNamespace(string name)
         {
             _name = name;
