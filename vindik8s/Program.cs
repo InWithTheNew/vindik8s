@@ -40,6 +40,8 @@ namespace Vindik8s
 
             var c17Namespaces = kubeCluster.ListNamespaces1(firstContext);
 
+            var c17NamespacesList = c17Namespaces.
+
             Console.WriteLine(c17Namespaces);
 
         }

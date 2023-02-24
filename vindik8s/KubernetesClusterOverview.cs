@@ -80,7 +80,7 @@ namespace Vindik8s
 
         public async Task<KubernetesNamespace> ListNamespaces1(string? clusterName = null)
         {
-            var KNamespace = new KubernetesNamespace("nf-c17-uks-aks-k8s");
+            var KNamespace = new KubernetesNamespace(clusterName);
 
             return KNamespace;
 
