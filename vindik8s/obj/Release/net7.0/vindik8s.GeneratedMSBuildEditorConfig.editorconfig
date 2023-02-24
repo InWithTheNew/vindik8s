@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = vindik8s
-build_property.ProjectDir = C:\Users\adam.stevenson\OneDrive - Novia Financial\Documents\dev_study\vindik8s\vindik8s\
+build_property.ProjectDir = C:\work\repos\vindik8s\vindik8s\

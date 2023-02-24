@@ -1,14 +1,19 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using k8s;
 using k8s.KubeConfigModels;
 
 namespace Vindik8s
 {
-    public class KNamespace
+    public class KubernetesNamespace
     {
         string _name;
 
 
-        public KNamespace(string name)
+        public KubernetesNamespace(string name)
         {
             _name = name;
         }

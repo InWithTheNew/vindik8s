@@ -33,6 +33,7 @@ namespace Vindik8s
 
             Console.WriteLine(string.Join(",", podsInC17));
 
+
         }
     }
 }
