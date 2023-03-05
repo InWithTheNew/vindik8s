@@ -1,0 +1,7 @@
+<Project>
+	<ItemGroup>
+		<Compile Include="..\GlobalUsings.cs">
+			<Link>Properties\GlobalUsings.cs</Link>
+		</Compile>
+	</ItemGroup>
+</Project>
