@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using k8s;
 using k8s.KubeConfigModels;
 
-namespace Vindik8s
+namespace Vindik8s.ClassLibrary
 {
     public class KubernetesNamespace
     {

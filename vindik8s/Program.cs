@@ -1,5 +1,4 @@
-﻿using AutoMapper.Configuration.Annotations;
-using IdentityModel.OidcClient;
+﻿using IdentityModel.OidcClient;
 using k8s;
 using System.Security.Cryptography;
 
