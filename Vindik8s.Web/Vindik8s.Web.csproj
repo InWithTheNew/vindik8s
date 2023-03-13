@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Vindik8s.ClassLibrary\Vindik8s.ClassLibrary\Vindik8s.ClassLibrary.csproj" />
+    <ProjectReference Include="..\Vindik8s.ClassLibrary\Vindik8s.ClassLibrary.csproj" />
   </ItemGroup>
 
 </Project>
