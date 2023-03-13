@@ -17,6 +17,8 @@
         <ul id="namespace-dropdown-menu" class="dropdown-menu"></ul>
     </div>
 
+    <button id="search-microservices-button" class="btn btn-success" style="margin-bottom:15px;display:none;">Search</button>
+
     <div id="microservice-container" class="container" style="display:none;">
         <div id="microservice-container-checkboxes" class="checkboxes"></div>
     </div>
@@ -25,6 +27,12 @@
 <script type="text/javascript">
     var Index = (() => {
         var init = () => {
+            $('#search-microservices-button').click((e) => {
+                let clusterName = $('#cluster-dropdown-button').text().trim();
+                let namespaceName = $('#namespace-dropdown-select-text').text().trim();
+                Index.LoadNamespaceMicroservices(clusterName, namespaceName);
+            });
+
             Index.LoadClusters();
         }
 
@@ -67,7 +75,7 @@
                     let namespaceName = e.currentTarget.innerText;
 
                     $('#namespace-dropdown-select-text').text(namespaceName);
-                    Index.LoadNamespaceMicroservices(clusterName, namespaceName);
+                    $('#search-microservices-button').show();
                 });
             });
         }
