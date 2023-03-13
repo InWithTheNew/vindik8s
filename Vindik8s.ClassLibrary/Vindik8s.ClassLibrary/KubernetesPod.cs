@@ -10,22 +10,18 @@ namespace Vindik8s.ClassLibrary
 {
     public class KubernetesPod
     {
-        List<string> podList;
+        Kubernetes _client;
 
-        public KubernetesPod(string clusterName, string kubernetesNamespace)
+        public KubernetesPod(string clusterName)
         {
-            string _clusterName = clusterName;
-            string _kNamespace = kubernetesNamespace;
-
-            var config = KubernetesClientConfiguration.BuildConfigFromConfigFile(currentContext: _clusterName);
-            var client = new Kubernetes(config);
-
-            var podList = client.CoreV1.ListNamespacedPod(kubernetesNamespace).Items.Select(x => x.Metadata.Name).ToList();
+            var config = KubernetesClientConfiguration.BuildConfigFromConfigFile(currentContext: clusterName);
+            _client = new Kubernetes(config);
         }
 
-        public List<string> GetPods()
+        public async Task <List<string>> GetPods(string kubernetesNamespace)
         {
-            return podList; 
+            var pods = await _client.CoreV1.ListNamespacedPodAsync(kubernetesNamespace);
+            return pods.Items.Select(x => x.Metadata.Name).ToList();
         }
     }
 }

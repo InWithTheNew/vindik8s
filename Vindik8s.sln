@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vindik8s", "vindik8s\vindik8s.csproj", "{1FA70A7B-D48C-49F5-B1C3-E8E78ED1F00D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E5DCEA67-BAAE-4B1A-932E-F3C4C067842D}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
@@ -16,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vindik8s.Web", "Vindik8s.Web\Vindik8s.Web.csproj", "{CD279A69-7127-46C4-ABDC-611815E21DA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vindik8s.ClassLibrary", "Vindik8s.ClassLibrary\Vindik8s.ClassLibrary\Vindik8s.ClassLibrary.csproj", "{6B709513-283C-4BBD-B828-807D7304E08A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vindik8s.ClassLibrary", "Vindik8s.ClassLibrary\Vindik8s.ClassLibrary\Vindik8s.ClassLibrary.csproj", "{6B709513-283C-4BBD-B828-807D7304E08A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,10 +22,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1FA70A7B-D48C-49F5-B1C3-E8E78ED1F00D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1FA70A7B-D48C-49F5-B1C3-E8E78ED1F00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1FA70A7B-D48C-49F5-B1C3-E8E78ED1F00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1FA70A7B-D48C-49F5-B1C3-E8E78ED1F00D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CD279A69-7127-46C4-ABDC-611815E21DA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CD279A69-7127-46C4-ABDC-611815E21DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD279A69-7127-46C4-ABDC-611815E21DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
