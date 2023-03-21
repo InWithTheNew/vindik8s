@@ -20,6 +20,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vindik8s.ClassLibrary", "Vi
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vindik8s.ClassLibrary", "Vindik8s.ClassLibrary\Vindik8s.ClassLibrary.csproj", "{817AA816-A664-4840-ACF0-8A3DDA781638}"
 >>>>>>> d340e441767b42eb7fafd53c5ee98ee28e2e4a40
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vindik8s.Communication.AzurePipelines", "Vindik8s.Communication.AzurePipelines\Vindik8s.Communication.AzurePipelines.csproj", "{B3336C7C-37E8-4848-81D5-5AD85C748284}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,10 @@ Global
 		{817AA816-A664-4840-ACF0-8A3DDA781638}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{817AA816-A664-4840-ACF0-8A3DDA781638}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{817AA816-A664-4840-ACF0-8A3DDA781638}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3336C7C-37E8-4848-81D5-5AD85C748284}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3336C7C-37E8-4848-81D5-5AD85C748284}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3336C7C-37E8-4848-81D5-5AD85C748284}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3336C7C-37E8-4848-81D5-5AD85C748284}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
