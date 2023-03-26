@@ -1,106 +1,78 @@
-﻿@{
+﻿@model ClusterSelection
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <div id="cluster-dropdown" class="dropdown">
-        <button id="cluster-dropdown-button" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" disabled="disabled">
-            <span id="cluster-dropdown-select-text">Select Cluster</span>
+        <button id="cluster-dropdown-button" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+            <span id="cluster-dropdown-select-text">@(Model.SelectedCluster == null ? "Select Cluster" : Model.SelectedCluster.Name)</span>
         </button>
-        <ul id="cluster-dropdown-menu" class="dropdown-menu"></ul>
+        <ul id="cluster-dropdown-menu" class="dropdown-menu">
+            @foreach (var cluster in Model.Clusters)
+            {
+                <li class="cluster-dropdown-item">
+                    <span class="dropdown-item">@cluster.Name</span>
+                </li>
+            }
+        </ul>
     </div>
 
-    <div id="namespace-dropdown" class="dropdown" style="display:none;">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-            <span id="namespace-dropdown-select-text">Select Namespace</span>
-        </button>
-        <ul id="namespace-dropdown-menu" class="dropdown-menu"></ul>
-    </div>
+    @if (Model.SelectedCluster != null)
+    {
+        <div id="namespace-dropdown" class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                <span id="namespace-dropdown-select-text">All Namespaces</span>
+            </button>
+            <ul id="namespace-dropdown-menu" class="dropdown-menu">
+                @foreach (var namespacee in Model.SelectedCluster.Namespaces)
+                {
+                    <li class="namespace-dropdown-item">
+                        <span class="dropdown-item">@(namespacee.Name)</span>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
 
-    <button id="search-microservices-button" class="btn btn-success" style="margin-bottom:15px;display:none;">Search</button>
-
-    <div id="microservice-container" class="container" style="display:none;">
-        <div id="microservice-container-checkboxes" class="checkboxes"></div>
-    </div>
+    @if (Model.SelectedCluster != null)
+    {
+        <div>
+            @await Html.PartialAsync("Partials/NamespaceMicroservices", Model.SelectedCluster)
+        </div>
+    }
+    else
+    {
+        foreach (var cluster in Model.Clusters)
+        {
+            <div>
+                @await Html.PartialAsync("Partials/NamespaceMicroservices", cluster)
+            </div>
+        }
+    }
 </div>
 
 <script type="text/javascript">
     var Index = (() => {
         var init = () => {
-            $('#search-microservices-button').click((e) => {
-                let clusterName = $('#cluster-dropdown-button').text().trim();
-                let namespaceName = $('#namespace-dropdown-select-text').text().trim();
-                Index.LoadNamespaceMicroservices(clusterName, namespaceName);
+            $('.cluster-dropdown-item').click((e) => {
+                let clusterName = e.currentTarget.innerText;
+                $('#cluster-dropdown-select-text').text(clusterName);
+
+                window.location.href = `@Url.Action("Index", "Home")?clusterName=${clusterName}`;
             });
 
-            Index.LoadClusters();
-        }
+            $('.namespace-dropdown-item').click((e) => {
+                let namespace = e.currentTarget.innerText;
+                $('#namespace-dropdown-select-text').text(namespace);
 
-        var loadClusters = () => {
-            $.ajax({
-                type: 'GET',
-                url: '@Url.Action("GetClusters", "Home")',
-                data: {}
-            }).then((results) => {
-                $('#cluster-dropdown-menu').empty();
-                for (let i = 0; i < results.length; i++) {
-                    let current = results[i];
-                    $('#cluster-dropdown-menu').append(`<li class="cluster-dropdown-item"><span class="dropdown-item">${current}</span></li>`);
-                }
-
-                $('#cluster-dropdown-button').attr('disabled', false);
-                $('.cluster-dropdown-item').click((e) => {
-                    let clusterName = e.currentTarget.innerText;
-
-                    $('#cluster-dropdown-select-text').text(clusterName);
-                    Index.LoadClusterNamespaces(clusterName);
-                });
-            });
-        }
-
-        var loadClusterNamespaces = (clusterName) => {
-            $.ajax({
-                type: 'GET',
-                url: '@Url.Action("LoadClusterNamespaces", "Home")',
-                data: { clusterName: clusterName }
-            }).then((results) => {
-                $('#namespace-dropdown-menu').empty();
-                for (let i = 0; i < results.length; i++) {
-                    let current = results[i];
-                    $('#namespace-dropdown-menu').append(`<li class="namespace-dropdown-item"><span class="dropdown-item">${current}</span></li>`);
-                }
-
-                $('#namespace-dropdown').show();
-                $('.namespace-dropdown-item').click((e) => {
-                    let namespaceName = e.currentTarget.innerText;
-
-                    $('#namespace-dropdown-select-text').text(namespaceName);
-                    $('#search-microservices-button').show();
-                });
-            });
-        }
-
-        var loadNamespaceMicroservices = (clusterName, namespaceName) => {
-            $.ajax({
-                type: 'GET',
-                url: '@Url.Action("LoadNamespaceMicroservices", "Home")',
-                data: { clusterName: clusterName, namespaceName: namespaceName }
-            }).then((results) => {
-                $('#microservice-container-checkboxes').empty();
-                for (let i = 0; i < results.length; i++) {
-                    let current = results[i];
-                    $('#microservice-container-checkboxes').append(`<label><input type="checkbox" /><span>${current}</span></label>`);
-                }
-
-                $('#microservice-container').show();
+                $('.namespace-container').show();
+                $(`.namespace-container[data-namespace!="${namespace}"]`).hide();
             });
         }
 
         return {
-            Init: init,
-            LoadClusters: loadClusters,
-            LoadClusterNamespaces: loadClusterNamespaces,
-            LoadNamespaceMicroservices: loadNamespaceMicroservices
+            Init: init
         }
     })();
 

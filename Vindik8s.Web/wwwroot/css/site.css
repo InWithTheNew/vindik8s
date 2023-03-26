@@ -21,7 +21,7 @@ body {
     margin-bottom: 15px;
 }
 
-#microservice-container {
+.microservice-container {
     border: 1px solid #FFF;
     border-radius: 5px;
     padding: 25px;

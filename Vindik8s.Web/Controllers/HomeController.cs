@@ -21,24 +21,27 @@ namespace Vindik8s.Web.Controllers
             _microservicesService = microservicesService ?? throw new ArgumentNullException(nameof(microservicesService));
         }
 
-        public IActionResult Index() => View();
-
-        public async Task<IActionResult> GetClusters()
+        public async Task<IActionResult> Index(string clusterName)
         {
-            var clusters = await _clustersService.GetClustersAsync();
-            return new JsonResult(clusters);
-        }
+            var clusters = new List<Cluster>();
+            foreach (var c in await _clustersService.GetClustersAsync())
+            {
+                var clusterModel = new Cluster(c);
+                foreach (var n in await _clusterNamespacesService.GetNamespacesAsync(c))
+                {
+                    var namespaceModel = new Namespace(n);
+                    foreach (var s in await _microservicesService.GetMicroservicesAsync(c, n))
+                    {
+                        namespaceModel.Microservices.Add(new Microservice(s, "", ""));
+                    }
 
-        public async Task<IActionResult> LoadClusterNamespaces(string clusterName)
-        {
-            var namespaces = await _clusterNamespacesService.GetNamespacesAsync(clusterName);
-            return new JsonResult(namespaces);
-        }
+                    clusterModel.Namespaces.Add(namespaceModel);
+                }
 
-        public async Task<IActionResult> LoadNamespaceMicroservices(string clusterName, string namespaceName)
-        {
-            var microservices = await _microservicesService.GetMicroservicesAsync(clusterName, namespaceName);
-            return new JsonResult(microservices);
+                clusters.Add(clusterModel);
+            }
+
+            return View(new ClusterSelection(clusterName, clusters));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

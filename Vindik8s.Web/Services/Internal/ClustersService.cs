@@ -7,9 +7,8 @@ namespace Vindik8s.Web.Services.Internal
     {
         public async Task<IReadOnlyCollection<string>> GetClustersAsync()
         {
-            var Namespaces = new KubernetesClusterOverview();
-            return Namespaces.GetContexts();
-
+            var namespaces = new KubernetesClusterOverview();
+            return namespaces.GetContexts();
         }
     }
 }

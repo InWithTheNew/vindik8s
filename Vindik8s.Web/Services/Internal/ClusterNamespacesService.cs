@@ -7,11 +7,8 @@ namespace Vindik8s.Web.Services.Internal
     {
         public async Task<IReadOnlyCollection<string>> GetNamespacesAsync(string clusterName)
         {
-            //return await Task.FromResult(new[] { "corporate", "infrastructure" });
-
-            var KubernetesNamespaces = new KubernetesNamespace(clusterName);
-
-            return await KubernetesNamespaces.GetNamespaces();
+            var kubernetesNamespaces = new KubernetesNamespace(clusterName);
+            return await kubernetesNamespaces.GetNamespaces();
         }
     }
 }

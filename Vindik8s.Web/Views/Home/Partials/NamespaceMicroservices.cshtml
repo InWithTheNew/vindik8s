@@ -1,0 +1,23 @@
+﻿@model Cluster
+
+@foreach (var noviaNamespace in Model.Namespaces)
+{
+    <div class="row namespace-container" data-namespace="@(noviaNamespace.Name)" style="padding-bottom:10px;">
+        <div class="col-md-1 namespace-name-container" style="border:1px solid white;border-radius:5px;padding:2% 0 0 2%;">
+            <h2 style="writing-mode:sideways-lr;text-orientation:mixed;margin:0px;padding-bottom:20px;">@noviaNamespace.Name</h2>
+        </div>
+        <div class="col-md-11">
+            <div class="container microservice-container">
+                <div class="checkboxes">
+                    @foreach (var microservice in noviaNamespace.Microservices)
+                    {
+                        <label style="width:50%;">
+                            <input type="checkbox" />
+                            <span>&nbsp; @microservice.Name</span>
+                        </label>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
