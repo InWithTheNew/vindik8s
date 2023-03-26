@@ -1,6 +1,7 @@
 ﻿@model ClusterSelection
 @{
     ViewData["Title"] = "Home Page";
+    string defaultNamespaceSelector = "All Namespaces";
 }
 
 <div class="text-center">
@@ -9,7 +10,7 @@
             <span id="cluster-dropdown-select-text">@(Model.SelectedCluster == null ? "Select Cluster" : Model.SelectedCluster.Name)</span>
         </button>
         <ul id="cluster-dropdown-menu" class="dropdown-menu">
-            @foreach (var cluster in Model.Clusters)
+            @foreach (var cluster in Model.AllClusters)
             {
                 <li class="cluster-dropdown-item">
                     <span class="dropdown-item">@cluster.Name</span>
@@ -22,9 +23,12 @@
     {
         <div id="namespace-dropdown" class="dropdown">
             <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                <span id="namespace-dropdown-select-text">All Namespaces</span>
+                <span id="namespace-dropdown-select-text">@(defaultNamespaceSelector)</span>
             </button>
             <ul id="namespace-dropdown-menu" class="dropdown-menu">
+                <li class="namespace-dropdown-item">
+                    <span class="dropdown-item">All Namespaces</span>
+                </li>
                 @foreach (var namespacee in Model.SelectedCluster.Namespaces)
                 {
                     <li class="namespace-dropdown-item">
@@ -40,15 +44,6 @@
         <div>
             @await Html.PartialAsync("Partials/NamespaceMicroservices", Model.SelectedCluster)
         </div>
-    }
-    else
-    {
-        foreach (var cluster in Model.Clusters)
-        {
-            <div>
-                @await Html.PartialAsync("Partials/NamespaceMicroservices", cluster)
-            </div>
-        }
     }
 </div>
 
@@ -67,7 +62,9 @@
                 $('#namespace-dropdown-select-text').text(namespace);
 
                 $('.namespace-container').show();
-                $(`.namespace-container[data-namespace!="${namespace}"]`).hide();
+                if (namespace !== '@(defaultNamespaceSelector)') {
+                    $(`.namespace-container[data-namespace!="${namespace}"]`).hide();
+                }
             });
         }
 

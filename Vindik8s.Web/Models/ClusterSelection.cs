@@ -7,13 +7,13 @@
             IReadOnlyCollection<Cluster> clusters)
         {
             SelectedClusterName = selectedClusterName;
-            Clusters = clusters ?? throw new ArgumentNullException(nameof(clusters));
+            AllClusters = clusters ?? throw new ArgumentNullException(nameof(clusters));
         }
 
         public string SelectedClusterName { private get; set; }
 
-        public IReadOnlyCollection<Cluster> Clusters { get; set; }
+        public IReadOnlyCollection<Cluster> AllClusters { get; set; }
 
-        public Cluster SelectedCluster => Clusters.SingleOrDefault(s => s.Name == SelectedClusterName);
+        public Cluster SelectedCluster => AllClusters.SingleOrDefault(s => s.Name == SelectedClusterName);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Vindik8s.ClassLibrary.Models;
 using Vindik8s.Web.Models;
 using Vindik8s.Web.Services.Abstract;
 
@@ -30,9 +31,11 @@ namespace Vindik8s.Web.Controllers
                 foreach (var n in await _clusterNamespacesService.GetNamespacesAsync(c))
                 {
                     var namespaceModel = new Namespace(n);
-                    foreach (var s in await _microservicesService.GetMicroservicesAsync(c, n))
+                    var installedServices = await _microservicesService.GetInstalledMicroservicesAsync(c, n);
+                    foreach (var s in _microservicesService.GetAllMicroservices(n))
                     {
-                        namespaceModel.Microservices.Add(new Microservice(s, "", ""));
+                        bool installed = installedServices.Contains(s);
+                        namespaceModel.Microservices.Add((new NoviaMicroservice(s, n, "", ""), installed));
                     }
 
                     clusterModel.Namespaces.Add(namespaceModel);

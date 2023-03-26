@@ -1,10 +1,12 @@
-﻿namespace Vindik8s.Web.Models
+﻿using Vindik8s.ClassLibrary.Models;
+
+namespace Vindik8s.Web.Models
 {
     public class Namespace
     {
         public Namespace()
         {
-            Microservices = new List<Microservice>();
+            Microservices = new List<(NoviaMicroservice, bool)>();
         }
 
         public Namespace(string name)
@@ -15,6 +17,6 @@
 
         public string Name { get; set; }
 
-        public List<Microservice> Microservices { get; set; }
+        public List<(NoviaMicroservice, bool)> Microservices { get; set; }
     }
 }

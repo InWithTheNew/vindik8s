@@ -10,4 +10,10 @@
     <ProjectReference Include="..\Vindik8s.ClassLibrary\Vindik8s.ClassLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

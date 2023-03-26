@@ -1,41 +1,27 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
+using System.IO;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
 namespace Vindik8s.Web
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);
+            await WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((h, c) =>
+                {
+                    var env = h.HostingEnvironment;
 
-            // Add services to the container.
-            builder.Services.AddControllersWithViews();
-            builder.Services.AddServices();
-
-            var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
-
-            app.Run();
+                    c.SetBasePath(Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location))
+                        .AddJsonFile("./appsettings.json", optional: false, reloadOnChange: true)
+                        .AddEnvironmentVariables();
+                })
+                .UseStartup<Startup>()
+                .Build()
+                .RunAsync();
         }
     }
 }

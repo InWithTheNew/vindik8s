@@ -2,6 +2,8 @@
 {
     public interface IMicroservicesService
     {
-        Task<IReadOnlyCollection<string>> GetMicroservicesAsync(string clusterName, string namespaceName);
+        Task<IReadOnlyCollection<string>> GetInstalledMicroservicesAsync(string clusterName, string namespaceName);
+
+        IReadOnlyCollection<string> GetAllMicroservices(string namespaceName);
     }
 }

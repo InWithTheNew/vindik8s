@@ -27,6 +27,21 @@ body {
     padding: 25px;
 }
 
+.namespace-name-container {
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    padding: 2% 0 0 2%;
+}
+
+.namespace-name-text {
+    /*writing-mode: vertical-rl;
+    text-orientation: upright;*/
+    writing-mode: sideways-lr;
+    text-orientation: mixed;
+    margin: 0px;
+    padding-bottom: 20px;
+}
+
 .checkboxes {
     text-align: left;
 }
